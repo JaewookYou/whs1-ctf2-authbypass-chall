@@ -1,0 +1,2 @@
+- add execute permission to `entrypoint.sh` before you run docker-compose
+- then you could run with just typing `docker-compose up`
