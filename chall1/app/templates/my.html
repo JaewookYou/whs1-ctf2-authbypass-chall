@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>arang bank</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            var balance = Number.parseInt(document.querySelector("body > section > div > div.container > div > div > table:nth-child(1) > tbody > tr:nth-child(4) > td:nth-child(2)").innerText);
+            if(balance > 1000000000){
+                alert("Congratulation! You will get flag if your balance is over than 1,000,000,000");
+                if(confirm("If you want to move `flag` page, press OK")){
+                    location = "/getflag";
+                }
+            }
+        })
+    </script>
+  </head>
+	<body>
+	<section class="ftco-section">
+		
+		<div class="container" style="max-width: 100%;">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5" >
+					<h2 class="heading-section">arang bank</h2>
+				</div>
+			</div>
+			
+			 <div class="container" class="row justify-content-center">
+            <!-- <hr/> -->
+            <div class="col-md-6 text-center mb-5" style="max-width: 100%;">
+                <div>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr align="left">
+                                <th width="15%">아이디</th>
+                                <th width="85%">{{login_info['userid']}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr align="left">
+                                <td>회원번호
+                                </td>
+                                <td>
+                                {{login_info['userseq']}}
+                                </td>
+                            </tr>
+                            <tr align="left">
+                                <td>전화번호
+                                </td>
+                                <td>
+                                {{login_info['phonenum']}} (<a href="/mysms">SMS인증번호 보기</a>)
+                                </td>
+                            </tr>
+                            <tr align="left">
+                                <td>계좌번호
+                                </td>
+                                <td>
+                                {{login_info['acctno']}} (<a href="/transfer_history">거래내역 보기</a>)
+                                </td>
+                            </tr>
+                            <tr align="left">
+                                <td>잔액
+                                </td>
+                                <td>
+                                {{login_info['balance']}}
+                                </td>
+                            </tr>
+                            <tr align="left">
+                                <td>간편인증 등록여부
+                                </td>
+                                <td>
+                                {% if login_info['simplepass'] %}
+                                    등록완료 (<a href="/register_simplepass">재등록하기</a>)
+                                {% else %}
+                                    미등록 (<a href="/register_simplepass">등록하기</a>)
+                                {% endif %}
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                                <td colspan="2" style="text-align: left;">
+                                    <p>{{login_info['acctno']}}</p>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <span style='float:right'>
+                                        <button type="button" id="list" class="btn btn-default" onclick="location.replace('/transfer');">이체</button>
+                                        <button type="button" id="write" class="btn btn-default" onclick="location.replace('/logout');">로그아웃</button>
+                                    </span>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+								</div>
+            </div>
+            <!-- <hr/> -->
+          </div>
+        </div>    
+		</div>
+		
+	</section>
+
+	<script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/popper.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/main.js"></script>
+
+	</body>
+</html>

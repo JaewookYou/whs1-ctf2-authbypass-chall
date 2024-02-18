@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>arang bank</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="/static/css/style.css">
+  </head>
+	<body>
+	<section class="ftco-section">
+		
+		<div class="container" style="max-width: 100%;">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5" >
+					<h2 class="heading-section">arang bank</h2>
+				</div>
+			</div>
+			
+			 <div class="container" class="row justify-content-center">
+            <!-- <hr/> -->
+            <div class="col-md-6 text-center mb-5" style="max-width: 100%;">
+                <div>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>거래 번호</th>
+                                <th>송금자 주소</th>
+                                <th>수신자 주소</th>
+                                <th>금액</th>
+                                <th>거래 날짜</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for transaction in transactions %}
+                            <tr>
+                                <td>{{ transaction['transaction_id'] }}</td>
+                                <td>{{ transaction['from_id'] }}<br>({{ transaction['from_address'] }})</td>
+                                <td>{{ transaction['to_id'] }}<br>({{ transaction['to_address'] }})</td>
+                                <td>{{ transaction['amount'] }}</td>
+                                <td>{{ transaction['transaction_date'] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <span style='float:right'>
+
+                                        <button type="button" id="list" class="btn btn-default" onclick="location.replace('/my');">마이페이지</button>
+                                        <button type="button" id="list" class="btn btn-default" onclick="location.replace('/transfer');">이체</button>
+                                        <button type="button" id="write" class="btn btn-default" onclick="location.replace('/logout');">로그아웃</button>
+                                    </span>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+								</div>
+            </div>
+            <!-- <hr/> -->
+          </div>
+        </div>    
+		</div>
+		
+	</section>
+
+	<script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/popper.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/main.js"></script>
+
+	</body>
+</html>

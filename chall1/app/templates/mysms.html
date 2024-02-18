@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arang bank</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script>
+        function getsms(){
+            fetch("/api/get_sms_msg?phonenum={{login_info['phonenum']}}").then(e=>e.text()).then(e=>{
+                if(e != "x"){
+                    const screen = document.querySelector(".screen");
+                    const newMessage = document.createElement("div");
+                    newMessage.classList.add("message", "sender");
+                    newMessage.textContent = e;
+                    screen.appendChild(newMessage);
+                    screen.scrollTop = screen.scrollHeight;
+                }
+            })
+        }
+        setInterval(getsms, 3000);
+    </script>
+</head>
+<body>
+    <div class="phone">
+        <div class="screen">
+        </div>
+    </div>
+</body>
+</html>

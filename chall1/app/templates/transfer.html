@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>arang bank</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="/static/css/style.css">
+	<script>
+		function fn_cancel(){
+			location.replace(`/my`);
+		}
+	</script>
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container" style="max-width: 100%;">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">arang bank</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="container">
+				 <form id="writeForm" name="writeForm" method="post" enctype="multipart/form-data">
+				        <div>
+				            <h2 class="text-center mb-4">이체하기</h2>
+				            <h4 class="text-left mb-4">내 계좌 : {{ login_info['acctno'] }}<br>잔액 : {{ login_info['balance'] }}</h4>
+				            <div>
+				                <div class="mb-3">
+				                  <label class="form-label">이체 대상 계좌번호</label>
+				                  <input class="form-control" type="text" id="to_address" name="to_address">
+				                </div>
+				                <div class="mb-3">
+				                  <label class="form-label">금액</label>
+				                  <input class="form-control" type="text" id="amount" name="amount" placeholder="0">
+				                </div>
+				                <div>
+				                	<center>
+				                    <input class="btn btn-success btn-lg" type="submit" value="이체하기">
+				                    <input class="btn btn-warning btn-lg" value="이체기록" onclick="location='/transfer_history'">
+				              		<input class="btn btn-info btn-lg" onClick='fn_cancel()' value="마이페이지">
+				              		</center>
+				                </div>
+				            </div>
+				        </div>
+				    </form>
+</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/popper.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/main.js"></script>
+
+	</body>
+</html>
